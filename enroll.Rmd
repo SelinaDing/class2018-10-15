@@ -1,0 +1,29 @@
+---
+title: "enroll"
+author: "Cunhonghu Ding"
+date: "20181015"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(janitor)
+```
+```{r echo=FALSE}
+#read data
+x15 <- read_excel("CourseEnrollmentStatistics.xlsx") %>% 
+  clean_names() %>%
+  filter(!is.na(course))
+x16 <- read_excel("copy_of_class_enrollment_summary_by_term_10.06.2016.xlsx", skip = 3) %>% 
+  clean_names() %>%
+  filter(!is.na(course_name)) 
+x17 <- read_excel("class_enrollment_summary_by_term_10.20.17.xlsx", skip = 3) %>% 
+  clean_names() %>%
+  filter(!is.na(course_name)) 
+x18 <- read_excel("class_enrollment_summary_by_term_10_12.xlsx", skip = 3) %>% 
+  clean_names() %>%
+  filter(!is.na(course_name)) 
+```
+
